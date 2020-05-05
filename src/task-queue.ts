@@ -36,6 +36,7 @@ export default class TaskQueue {
     // `queue`にタスクが溜まっていたら、上限に到達するまでループする
     while (this.running < this.concurrency && this.queue.length) {
       const task = this.queue.shift();
+      // 行列の受付..
       const _signIn = async (tsk: TaskType): Promise<void> => {
         await tsk();
         this.running--;

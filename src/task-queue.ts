@@ -1,7 +1,7 @@
 // タスクの型.. 戻り値を`Promise<T>`型にする
 type TaskType = () => Promise<void>;
 /**
- * タスクのキュー管理クラス
+ * タスクをキューで管理するクラス
  * @export
  * @class TaskQueue
  */
@@ -36,7 +36,7 @@ export default class TaskQueue {
     // `queue`にタスクが溜まっていたら、上限に到達するまでループする
     while (this.running < this.concurrency && this.queue.length) {
       const task = this.queue.shift();
-      // 行列の受付..
+      // 待ち行列受付..
       const _signIn = async (tsk: TaskType): Promise<void> => {
         await tsk();
         this.running--;

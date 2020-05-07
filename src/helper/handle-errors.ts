@@ -1,4 +1,4 @@
-import logBuilder from './helper/trailer';
+import logBuilder from './trailer';
 /**
  * 例外管理
  * @export

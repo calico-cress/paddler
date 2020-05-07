@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import handlErrors from './handle-errors';
+import handlErrors from './helper/handle-errors';
 import moment from 'moment';
 import minimize from './parse-args';
 import getAllDirs from './get-alldirs';

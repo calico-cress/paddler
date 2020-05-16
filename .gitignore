@@ -60,12 +60,15 @@ typings/
 # next.js build output
 .next
 
+# プロファイリング
+isolate*
+
 # メモ
 private.md
 
-# コンパイル後の資材は不要
+# コンパイル後の資材
 dist/
 
-# 設定ファイルは不要
+# 設定ファイル
 init.json
 init.yaml

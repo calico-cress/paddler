@@ -12,8 +12,8 @@ const definition: minimist.Opts = {
   },
   default: {
     line: false,
-    time: '180000',
-    nest: '2',
+    time: '300000', // 直近5分
+    nest: '2', // 同時実行数：2
     test: false,
   },
 };
@@ -31,7 +31,7 @@ interface ExecArgs {
   test: boolean;
 }
 
-export default function minimize(
+export default function parseArgs(
   argv: string[]
 ): ExecArgs & minimist.ParsedArgs {
   return minimist<ExecArgs>(argv, definition);

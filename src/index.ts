@@ -2,7 +2,7 @@
 
 import handlErrors from './helper/handle-errors';
 import moment from 'moment';
-import minimize from './parse-args';
+import parseArgs from './parse-args';
 import getAllDirs from './get-alldirs';
 import TaskQueue from './task-queue';
 import paddle from './paddle';
@@ -11,7 +11,7 @@ import paddle from './paddle';
 handlErrors();
 
 // 引数をパース
-const argv = minimize(process.argv.slice(2));
+const argv = parseArgs(process.argv.slice(2));
 const path = argv._[0],
   ext = argv._[1],
   from = moment()
@@ -32,12 +32,14 @@ if (!path || !ext) {
  * @returns {Promise<void>}
  */
 function main(): void {
-  // 全てのサブフォルダのフルパスを取得する
+  /* 全てのサブフォルダのフルパスを取得（同期的な再起呼出し）
+   * `getAllxx`を非同期にする場合、後続の`taskQueue`以降の処理も非同期下に移動
+   * .. いずれ対応する */
   const directories = getAllDirs(path);
   if (!directories.length) return;
 
   // フォルダ単位でタスク実行（queueで管理）
-  let taskQueue = new TaskQueue(parseInt(argv.nest));
+  const taskQueue = new TaskQueue(parseInt(argv.nest));
   directories.forEach((dir: string): void => {
     taskQueue.pushTask(
       async (): Promise<void> => {

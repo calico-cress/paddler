@@ -18,7 +18,7 @@ export default async function paddle(
   path: string,
   ext: string,
   from: Date,
-  isTest: boolean = false
+  isTest: boolean
 ): Promise<string[]> {
   const names = await _readdir(path);
   const changeAbsPath = (name: string): string => join(path, name);

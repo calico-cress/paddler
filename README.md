@@ -5,10 +5,7 @@
 
 ## メモ
 
-1. 近々に以下を参照
-   - <http://blog.nodejs.jp/2011/10/node.html>
-   - <https://blog.koh.dev/2020-03-04-nodejs-performance/>
-   - <https://www.webprofessional.jp/how-javascript-references-work/>
 1. `cluster`の活用を検討..
+   - <https://postd.cc/setting-up-a-node-js-cluster/>
 1. webpackでバンドルするかも..
 1. 当ファイルに引数の一覧を記載する

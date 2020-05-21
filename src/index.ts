@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import handlErrors from './helper/handle-errors';
+import handleErrors from './helper/handle-errors';
 import moment from 'moment';
 import parseArgs from './parse-args';
 import getAllDirs from './get-alldirs';
@@ -8,7 +8,7 @@ import TaskQueue from './task-queue';
 import paddle from './paddle';
 
 // 例外の管理
-handlErrors();
+handleErrors();
 
 // 引数をパース
 const argv = parseArgs(process.argv.slice(2));
